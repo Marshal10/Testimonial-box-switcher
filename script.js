@@ -4,6 +4,8 @@ const userImg=document.querySelector('.user-img')
 const userName=document.querySelector('.name')
 const userRole=document.querySelector('.role')
 
+let idx=1
+
 const testimonials = [
     {
       name: 'Miyah Myles',
@@ -58,7 +60,13 @@ const testimonials = [
     },
   ]
 
-let idx=1
+function firstTestimonial(){
+    const { name, position, photo, text } = testimonials[0]
+    testimonial.innerHTML=text
+    userImg.src=photo
+    userName.innerHTML=name
+    userRole.innerHTML=position
+}
 
 function updateTestimonial(){
     const { name, position, photo, text } = testimonials[idx]
@@ -73,5 +81,6 @@ function updateTestimonial(){
         idx=0
     }
 }
+firstTestimonial()
 
 setInterval(updateTestimonial,10000)
